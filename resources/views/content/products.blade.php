@@ -9,7 +9,7 @@
           @foreach ($products as $product)
             <div class="col-md-4 text-center">
               <h4>{{$product->title}}</h4>
-            <img src='{{asset('images/'.$product->image}}' width="300px" height="300px">
+            <img src='{{asset('images/'.$product->image)}}' width="300px" height="300px">
             <br><br>
             <p><b>price on site: {{$product->price}} $</b></p>
             @if(Cart::get($product->id))
