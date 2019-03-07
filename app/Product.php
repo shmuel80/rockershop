@@ -21,11 +21,11 @@ class Product extends Model
     if($request->product_id && is_numeric($request->product_id)){
        $id=$request->product_id;
        if($request->op){
-         $op=$request->op == '+'?1:-1;
+         $op=($request->op == '+')?1:-1;
          $product = Cart::get($id);
          if($product['quantity']==1 && $op =='-') return FALSE;
          Cart::update(
-           $id, array('quantity=>$op',
+           $id, array('quantity'=>$op,
          ));
          $valid = TRUE;
        }

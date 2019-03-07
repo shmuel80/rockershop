@@ -29,7 +29,7 @@ class ShopController extends MainController
     public function deleteProduct($product_id){
         Cart::remove($product_id);
         Session::flash('ms', "Order deleted");
-        return redirect("shop/deleteProduct");
+        return redirect("shop/checkout");
     }
 
     public function updateCart(Request $request){

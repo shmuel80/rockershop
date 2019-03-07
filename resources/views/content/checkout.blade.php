@@ -33,8 +33,9 @@
             <td>{{$item['quantity']*$item['price']}} USD</td>
             <td>
             <div class="text-center">
-         <a href="{{url('shop/deleteProduct/')."/".$item['id]}}" class="btn btn-danger">
+         <a href="{{url('shop/deleteProduct/')."/".$item['id']}}" class="btn btn-danger">
         <i class="far fa-trash-alt"></i>
+        
         </a>
         </div>
                 </td>
@@ -51,7 +52,7 @@
              </tbody>
            </table>
           </div>
-          </div>
+          <!--</div>-->
           <a href="{{url('shop/clearCart')}}" class="btn btn-danger">Clear Cart</a>
           <button data-id='{{$item['id']}}' class="btn btn-primary">Order Now</button>
           @else

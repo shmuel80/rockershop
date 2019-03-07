@@ -26,22 +26,25 @@
               @endif
             </nav>
             <div button class="btn-toolbar">
-            <a class="btn btn-outline-primary" href="#">Sign In</a>
+            <a class="btn btn-outline-primary" href="{{url('user/signin')}}">Sign In</a>
             <span style="width: 12px"></span>
-            <a class="btn btn-outline-primary" href="#">Sign Up</a>
+            <a class="btn btn-outline-primary" href="{{url('user/signup')}}">Sign Up</a>
           </div>
         </div>
          <div class="container">
            @if(Session::has('ms'))
-            <div class="alert alert-success ms_ box" role="alert">
-              
-                {{ Session:: get('ms')}}
-              
+            <div class="alert alert-success ms_box" role="alert">
+                {{ Session::get('ms') }}
               </div>
           @endif
-          @yield('content')
+          @if(count ($errors)>0)
+          @foreach ($errors->all() as $message )
+          <div class="alert alert-danger" role="alert">
+              {{ $message }}
         </div>
-      
+        @endforeach
+        @endif
+        @yield('content')
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
