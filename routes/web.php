@@ -17,7 +17,7 @@ Route::get('{cat_url}/{product_url}', "PagesController@getItem");
 Route::prefix('user')->group(function(){ 
 Route::get('logout', "UserController@logout"); 
 Route::get('signin', "UserController@getSignin");
-Route::post('validate', "UserController@userValidate");
+Route::post('userValidate', "UserController@userValidate");
 Route::get('signup', "UserController@getSignup");
 Route::post('userSignUp', "UserController@insertUser");
 });
