@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use Cart;
-use Session;
+use App\Order;
+use Session, Cart;
 
 class ShopController extends MainController
 {
@@ -39,4 +39,18 @@ class ShopController extends MainController
         Session::flash('ms', "Cart is not updated !!!");
     }
 }
+    static public function SaveOrder(){
+        if(Session::has('user_id')){
+        if(!Cart::isEmpty()){
+            if (Order::SaveOrder()){
+                Session:flash('ms', "Order is saved !!!");
+                return redirect('shop/checkout');
+            }
+        }else{
+            return redirect('shop')->withErrors("Please add your record"); 
+        }
+        }else{
+            return redirect('user/signin')->withErrors("Please signin to continue");
+        }
+    }
 };

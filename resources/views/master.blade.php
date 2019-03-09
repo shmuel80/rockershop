@@ -25,12 +25,14 @@
           </a>
               @endif
             </nav>
-            <div button class="btn-toolbar">
+            @if(! Session::has('user_id'))
             <a class="btn btn-outline-primary" href="{{url('user/signin')}}">Sign In</a>
             <span style="width: 12px"></span>
             <a class="btn btn-outline-primary" href="{{url('user/signup')}}">Sign Up</a>
+            @else
+            <a class="btn btn-outline-primary" href="{{url('user/logout')}}">Log out</a>
+            @endif
           </div>
-        </div>
          <div class="container">
            @if(Session::has('ms'))
             <div class="alert alert-success ms_box" role="alert">

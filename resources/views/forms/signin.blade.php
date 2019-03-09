@@ -5,10 +5,12 @@
 </div>
 <div class="container-flex">
   <div class="row">
+        <div class="container col-md-6">
    <div class="card-deck col-md-6 text-center">
     </div>
-  <form method="POST" action="{{url('user/userValidate')}}">
-  <input type="hidden" name= "_token" value="{{ 'csrf_token' }}">
+    <h1>SignIn</h1>
+  <form method="post" action="{{url('user/userValidate')}}">
+  <input type="hidden" name= "_token" value="{{ csrf_token() }}">
               <div class="form-group">
                   <label for="email">E-mail address</label>
                   <input type="text" class="form-control" name="email" placeholder="Enter your e-mail address">

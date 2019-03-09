@@ -54,7 +54,7 @@
           </div>
           <!--</div>-->
           <a href="{{url('shop/clearCart')}}" class="btn btn-danger">Clear Cart</a>
-          <button data-id='{{$item['id']}}' class="btn btn-primary">Order Now</button>
+          <a href="{{url('shop/saveorder')}}" class="btn btn-primay">Order Now</a>
           @else
       <span>No records added to cart</span>
      @endif
