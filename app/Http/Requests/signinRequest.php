@@ -24,7 +24,7 @@ class signinRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'email|required|unique:posts|max:255',
+            'email' => 'email|required|max:255',
             'password' => 'required|min:6|max:12',
         ];
     }

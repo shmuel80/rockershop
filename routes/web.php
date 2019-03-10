@@ -23,6 +23,11 @@ Route::post('userSignUp', "UserController@insertUser");
 });
 
 
+Route::prefix('cms')->group(function(){ 
+    Route::get('dashboard', "CmsController@ShowDashboard"); 
+});   
+
+
 
 
 

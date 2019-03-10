@@ -32,6 +32,10 @@
             @else
             <a class="btn btn-outline-primary" href="{{url('user/logout')}}">Log out</a>
             @endif
+            <span style="width: 12px"></span>
+            @if(! Session::has('is_admin'))
+            <a class="btn btn-outline-primary" href="{{url('user/signin')}}">Admin</a>
+            @endif
           </div>
          <div class="container">
            @if(Session::has('ms'))
