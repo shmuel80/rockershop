@@ -9,4 +9,4 @@ class CmsController extends Controller
     public function ShowDashboard(){
 
     return view('cms.master');
-}}
+}};
