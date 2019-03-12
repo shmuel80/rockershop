@@ -71,7 +71,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Contents</span></a>
+          <span>Content</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="tables.html">
@@ -109,15 +109,7 @@
         </ol>
 
           <div class="row">
-          </div>
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fas fa-table"></i>
-              Data Table Example</div>
-            <div class="card-body">
-             
-            </div>
-         </div>
+          @yield('content')
           </div>
               
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

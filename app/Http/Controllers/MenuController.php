@@ -13,7 +13,8 @@ class MenuController extends MainController
      */
     public function index()
     {
-        
+        self::$data['title'] .= 'cms.menu';
+        return view('cms.showMenu', self::$data);
     }
 
     /**
@@ -23,7 +24,8 @@ class MenuController extends MainController
      */
     public function create()
     {
-        //
+        self::$data['title'] .= 'Add Menu';
+        return view('cms.addMenu', self::$data);
     }
 
     /**
