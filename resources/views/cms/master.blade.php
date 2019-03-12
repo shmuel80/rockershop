@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Dashboard</title>
+  <title>{{$title}}</title>
 
   <link href="{{asset('vendor/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 
@@ -107,7 +107,21 @@
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol>
-
+        <div class="container">
+            @if(Session::has('ms'))
+             <div class="alert alert-success ms_box" role="alert">
+                 {{ Session::get('ms') }}
+               </div>
+           @endif
+           @if(count ($errors)>0)
+           @foreach ($errors->all() as $message )
+           <div class="alert alert-danger" role="alert">
+               {{ $message }}
+         </div>
+         @endforeach
+         @endif
+        
+       </div>
           <div class="row">
           @yield('content')
           </div>
@@ -129,6 +143,7 @@
   <!-- Demo scripts for this page-->
   <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
   <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+  <script src="{{asset('js/js.js')}}"></script>
 
 </body>
 

@@ -1,3 +1,13 @@
+String.prototype.clearText = function(){
+    return this.toString().trim().replace(/\s/g, '-');
+}
+
+$('.text-origin').on('keyup',function(){
+$('.text-target').val($(this).val().clearText());
+
+});
+
+
 $('.ms_box').delay(3000).slideUp;
 
 $('.addToCart').on('click',function(){

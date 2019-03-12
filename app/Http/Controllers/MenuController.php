@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AddMenuRequest;
+use App\Menu;
+use Session;
 
 class MenuController extends MainController
 {
@@ -34,10 +37,15 @@ class MenuController extends MainController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddMenuRequest $request)
     {
-        //
-    }
+        if(Menu::addMenu($request)){
+            Session::flash('ms', "New Menu Added");
+            return redirect("cms/menu");
+        }else{
+
+        }
+    }};
 
     /**
      * Display the specified resource.
@@ -48,7 +56,7 @@ class MenuController extends MainController
     public function show($id)
     {
         //
-    }
+    };
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +66,7 @@ class MenuController extends MainController
      */
     public function edit($id)
     {
-        //
+     echo "show delete ms $id";
     }
 
     /**
