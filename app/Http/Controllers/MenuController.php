@@ -43,7 +43,7 @@ class MenuController extends MainController
             Session::flash('ms', "New Menu Added");
             return redirect("cms/menu");
         }else{
-
+            return redirect("cms/menu")->withErrors('an error occured');
         }
     }};
 
@@ -55,7 +55,7 @@ class MenuController extends MainController
      */
     public function show($id)
     {
-        //
+        return view();
     };
 
     /**
