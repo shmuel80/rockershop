@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 Use Illuminate\Http\Request;
 Use\App\Categorie;
 Use\App\Product;
+Use\App\Content;
 
 class PagesController extends MainController
 
@@ -30,5 +31,15 @@ class PagesController extends MainController
         self::$data['item'] = $product->toArray();
         self::$data['title'] .= $product['title'];
         return view ("content.item", self::$data);
+    }
+
+    public function getPageByUrl($page){
+        if(!empty($content = Content::getContent($page_url))){
+            self::$data['title'].= $content->title;
+            self::$data['content'] = $content;
+            return view('content.content', self::$data);
+        }else{
+            redirect('')->withErrors('page not found');
+        }
     }
 }

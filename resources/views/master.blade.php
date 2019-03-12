@@ -13,8 +13,10 @@
     <body>
        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow">
        <h5 class="my-0 mr-md-auto font-weight-normal"><i class="fas fa-bolt"></i><a href="{{url('/')}}">Rockers' Choice</a><i class="fas fa-bolt"></i></h5>
-            <a class="p-2 text-dark" href="#">About Us</a>
-            <a class="p-2 text-dark" href="#">Contact Us</a>
+       @foreach ($menus as $menu)   
+       <a class="p-2 text-dark" href="{{url($menu['url'])}}">{{$menu['title']}}</a>
+       
+       @endforeach  
             <a class="p-2 text-dark" href="{{url('shop')}}">Shop</a>
             @if(!Cart::isEmpty())
             <a href="{{url('shop/checkout')}}"></a>
@@ -34,7 +36,7 @@
             @endif
             <span style="width: 12px"></span>
             @if(! Session::has('is_admin'))
-            <a class="btn btn-outline-primary" href="{{url('user/signin')}}">Admin</a>
+            <a class="btn btn-outline-primary" href="{{url('cms/dashboard')}}">Admin</a>
             @endif
           </div>
          <div class="container">
