@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AddMenuRequest;
-use App\Menu;
+use App\Content;
 use Session;
 
-class MenuController extends MainController
+class ContentController extends MainController
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class MenuController extends MainController
      */
     public function index()
     {
-        self::$data['title'] .= 'cms.menu';
-        return view('cms.showMenu', self::$data);
+    self::$data['contents'] = Content::all()->toArray();
+        self::$data['title'] .= 'cms content';
+        return view('cms.showContent', self::$data);
     }
 
     /**

@@ -69,7 +69,7 @@
           <span>Menus</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{url('cms/content')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>Content</span></a>
       </li>

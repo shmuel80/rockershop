@@ -16,4 +16,14 @@ class Menu extends Model
         }
          return false;
     }
+    static public function updateMenu($request, $id){
+        $menu = self::find($id);
+        $menu->title =$request->title;
+        $menu->url =$request->url;
+        $menu->save();
+        if($menu->id){
+            return true;
+        }
+         return false;
+    }
 }

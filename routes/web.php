@@ -25,7 +25,8 @@ Route::post('userSignUp', "UserController@insertUser");
 Route::middleware(['CheckAdmin'])->group(function(){
 Route::prefix('cms')->group(function(){ 
     Route::get('dashboard', "CmsController@ShowDashboard"); 
-    Route::resource('menu', "CmsController@ShowDashboard"); 
+    Route::resource('menu', "MenuController"); 
+    Route::resource('content', "ContentController@ShowDashboard"); 
 });  
 
     });
