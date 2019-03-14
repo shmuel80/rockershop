@@ -2,13 +2,14 @@
 @section('content')
 
 <div class="container">
-    <div class="container">
-        <div class="row">
+    <div class="row">
+     <div class="container col-md-6">
+        <div class="container">
+         <div class="row">
         <a href="{{ur('cms/content')}}" class="btn btn-primary">Back to menu</a>
         </div>
         </div><br><br>
-     <div class="row">
-        <div class="row">
+
             <div class="container col-md-6">
        <div class="card-deck col-md-6 text-center">
         </div>
@@ -30,7 +31,7 @@
                   </div>
                   <div class="form-group">
                  <label for="url">Content Data</label>
-                <input type="password" class="form-control" name="data" placeholder="{{old('title')}}">
+                <input type="text" class="form-control" name="data" placeholder="{{old('url')}}">
                   </div>
                   <button type="submit" class="btn btn-primary" name="submit">Save</button>
               </form>

@@ -74,7 +74,7 @@
           <span>Content</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{url('cms/category')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>Categories</span></a>
       </li>
