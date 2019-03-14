@@ -28,8 +28,8 @@ class ContentController extends MainController
      */
     public function create()
     {
-        self::$data['title'] .= 'Add Menu';
-        return view('cms.addMenu', self::$data);
+        self::$data['title'] .= 'Add Content';
+        return view('cms.addContent', self::$data);
     }
 
     /**
@@ -38,13 +38,13 @@ class ContentController extends MainController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AddMenuRequest $request)
+    public function store(Request $request)
     {
-        if(Menu::addMenu($request)){
-            Session::flash('ms', "New Menu Added");
-            return redirect("cms/menu");
+        if(Content::addContent($request)){
+            Session::flash('ms', "New Content Added");
+            return redirect("cms/content");
         }else{
-            return redirect("cms/menu")->withErrors('an error occured');
+            return redirect("cms/content")->withErrors('an error occured');
     }}
 
     /**
@@ -55,9 +55,9 @@ class ContentController extends MainController
      */
     public function show($id)
     {
-        self::$data['title'] = 'menu delete';
+        self::$data['title'] = 'content delete';
         self::$data['post_id'] = $id;
-        return view('cms/deleteMenu', self::$data);
+        return view('cms/deleteContent', self::$data);
     }
 
     /**
@@ -68,9 +68,9 @@ class ContentController extends MainController
      */
     public function edit($id)
     {
-     self::$data['menu_data'] = $Menu::find($id)->toArray();
-     self::$data['title'] = 'update menu';
-     return view('cms/updateMenu', self::$data);
+     self::$data['contentS'] = $Menu::find($id)->toArray();
+     self::$data['title'] = 'update content';
+     return view('cms/updatecontent', self::$data);
     }
 
     /**
@@ -82,11 +82,11 @@ class ContentController extends MainController
      */
     public function update(Request $request, $id)
     {
-        if(Menu::updateMenu($request, $id)){
-            Session::flash('ms', "Menu has been updated");
-            return redirect("cms/menu");
+        if(Content::updateMenu($request, $id)){
+            Session::flash('ms', "Content has been updated");
+            return redirect("cms/content");
         }else{
-            return redirect("cms/menu")->withErrors('an error occured');
+            return redirect("cms/content")->withErrors('an error occured');
     }}
 
     /**
@@ -97,8 +97,8 @@ class ContentController extends MainController
      */
     public function destroy($id)
     {
-        Menu::destroy($id);
-        Session::flash('ms', "menu deleted!!");
-        return redirect('cms/menu');
+        Content::destroy($id);
+        Session::flash('ms', "content deleted!!");
+        return redirect('cms/content ');
     }
 }

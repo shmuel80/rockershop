@@ -2,9 +2,11 @@
 @section('content')
 
 <div class="container">
-    <div class="container">
-        <div class="row">
-        <a href="{{ur('cms/menu/create')}}" class="btn btn-primary">Add new content</a>
+    <div class="row">
+        <div class="container col-md-6">
+            <div class="container">
+             <div class="row">
+        <a href="{{ur('cms/content/create')}}" class="btn btn-primary">Add new content</a>
         </div>
         </div><br><br>
      <div class="row">

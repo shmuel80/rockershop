@@ -17,4 +17,28 @@ class Content extends Model
         $content = $content->toArray();
         return $content[0];
     }
+
+    static public function addContent($request){
+        $content = new self();
+        $content->menu_id =$request->menu_id;
+        $content->title =$request->title;
+        $content->data =$request->data;
+        $content->save();
+        if($content->id){
+            return true;
+        }
+         return false;
+    }
+
+    static public function updateContent($request){
+        $content = self::find($id);
+        $content->menu_id =$request->menu_id;
+        $content->title =$request->title;
+        $content->data =$request->data;
+        $content->save();
+        if($content->id){
+            return true;
+        }
+         return false;
+    }
 };
