@@ -12,6 +12,7 @@ Route::get('saveorder', "ShopController@SaveOrder");
 Route::get('deleteProduct/{product_id}', "ShopController@deleteProduct"); 
 Route::get('{cat_url}', "PagesController@getProducts");
 Route::get('{cat_url}/{product_url}', "PagesController@getItem");
+Route::get('shop/{category_url}','ShopController@products');
 });
 
 Route::prefix('user')->group(function(){ 

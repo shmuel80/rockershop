@@ -4,7 +4,7 @@ namespace App;
 use Cart;
 use Session;
 
-
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -31,5 +31,13 @@ class Product extends Model
        }
     }
     return $valid;
+   }
+   public function orderBy($column, $direction = 'asc')
+   {
+       $this->{$this->unions ? 'unionOrders' : 'orders'}[] = [
+           'column' => $column,
+           'direction' => strtolower($direction) == 'asc' ? 'asc' : 'desc',
+       ];
+       return $this;
    }
 }

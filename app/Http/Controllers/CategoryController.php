@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\AddMenuRequest;
+use App\Http\Requests\AddCategoryRequest;
 use App\Category;
 use Session;
 
@@ -38,13 +38,13 @@ class CategoryController extends MainController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AddMenuRequest $request)
+    public function store(AddCategoryRequest $request)
     {
-        if(Menu::addMenu($request)){
-            Session::flash('ms', "New Menu Added");
-            return redirect("cms/menu");
+        if(Categorie::addCategory($request)){
+            Session::flash('ms', "New Category Added");
+            return redirect("cms/category");
         }else{
-            return redirect("cms/menu")->withErrors('an error occured');
+            return redirect("cms/category")->withErrors('an error occured');
     }}
 
     /**
@@ -68,9 +68,9 @@ class CategoryController extends MainController
      */
     public function edit($id)
     {
-     self::$data['menu_data'] = $Menu::find($id)->toArray();
-     self::$data['title'] = 'update menu';
-     return view('cms/updateMenu', self::$data);
+     self::$data['category'] = Categorie::find($id)->toArray();
+     self::$data['title'] = 'update category';
+     return view('cms/updateCategory', self::$data);
     }
 
     /**
@@ -80,13 +80,13 @@ class CategoryController extends MainController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AddCategoryRequest $request, $id)
     {
-        if(Menu::updateMenu($request, $id)){
-            Session::flash('ms', "Menu has been updated");
-            return redirect("cms/menu");
+        if(Categorie::updateCategory($request, $id)){
+            Session::flash('ms', "Category has been updated");
+            return redirect("cms/category");
         }else{
-            return redirect("cms/menu")->withErrors('an error occured');
+            return redirect("cms/category")->withErrors('an error occured');
     }}
 
     /**

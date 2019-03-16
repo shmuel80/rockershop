@@ -24,6 +24,44 @@ class Categorie extends Model
         $data['cat_title'] = $cat['title'];
     }else{
         abort(404);
+    }}
+
+    static public function addCategory($request){
+        if ($request->hasfile('image') && $request->file('image')->isValid()){
+        $file = $request->file('image');
+        $filename = time()."-".$file->getClientOriginalName();
+        $request->file('image') -> move(public_path()."/images", $filename);
+        $category = new self();
+        $category->title = $request->title;
+        $category->article = $request->article;
+        $category->url = $request->url;
+        $category->image = $filename;
+        $category->save();
+        if($category->id){
+            return true;
+        }else{
+            return false; 
+        }
+        }     
     }
-    
-}}
+
+    static public function updateCategory ($request, $id){
+        $category = self::find($id);
+        $category->title = $request->title;
+        $category->article = $request->article;
+        $category->url = $request->url;
+        if($request->hasFile('image')&& $request->file('image')->isValid()){
+            $file = $request->file('image');
+            $filename = time()."-".$file->getClientOriginalName();
+            $request->file('image') -> move(public_path()."/images", $filename);
+            $category->image = $filename;
+        }
+        $category->image = $category->image;
+        $category->save();
+        if($category->id){
+            return true;
+        }else{
+            return false; 
+        }    
+        }
+        };
