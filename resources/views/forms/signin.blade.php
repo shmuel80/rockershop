@@ -9,11 +9,11 @@
    <div class="card-deck col-md-6 text-center">
     </div>
     <h1>SignIn</h1>
-  <form method="post" action="{{url('user/userValidate')}}">
+  <form method="POST" action="{{url('user/userValidate')}}">
     <input type="hidden" class="form-control"  name="_token" value="{{csrf_token()}}"/>
               <div class="form-group">
                   <label for="email">E-mail address</label>
-                  <input type="text" class="form-control" name="email" placeholder="Enter your e-mail address">
+                  <input type="text" class="form-control" name="email" value="{{old('email')}}">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group">
