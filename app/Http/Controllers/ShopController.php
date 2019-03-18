@@ -23,6 +23,7 @@ class ShopController extends MainController
     public function clearCart(){
         Cart::clear();
         Session::flash('ms', "Cart deleted");
+        self::$data['items']='';
         return redirect("shop/checkout");
     }
 

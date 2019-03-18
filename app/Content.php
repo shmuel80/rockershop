@@ -8,14 +8,15 @@ use Illuminate\Support\Facades\DB;
 class Content extends Model
 {
     static public function getContent($page_url){
-        $content = DB::table('contents')
-        ->menu('menus', function($join) use ($page_url) {
-        $join->on('menus.id', '=', 'contents.menu_id')
-        ->where('menus.url', '=', $page_url);
-        })
-        ->get();
-        $content = $content->toArray();
-        return $content[0];
+        $content = DB::table('menus')
+                ->join ('contents', function ($join) use ($page_url){
+                    $join->on('contents.menu_id', '=', 'menus.id')
+                    ->where('menus.url', '=', $page_url );
+                })
+    ->get();
+    $content = $content->toArray();
+//    print_r($contents);die;
+    return $content;
     }
 
     static public function addContent($request){

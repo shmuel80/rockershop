@@ -54,7 +54,7 @@
           </div>
           <!--</div>-->
           <a href="{{url('shop/clearCart')}}" class="btn btn-danger">Clear Cart</a>
-          <a href="{{url('shop/saveorder')}}" class="btn btn-primay">Order Now</a>
+          <a href="{{url('shop/saveorder')}}" class="btn btn-primary">Order Now</a>
           @else
       <span>No records added to cart</span>
      @endif

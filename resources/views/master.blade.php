@@ -8,13 +8,13 @@
   <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
   <title>{{$title}}</title>
 <script>var base_url='{{url('')}}';</script>
-<script>console.log(base_url);</script>
+
   </head>
     <body>
        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow">
        <h5 class="my-0 mr-md-auto font-weight-normal"><i class="fas fa-bolt"></i><a href="{{url('/')}}">Rockers' Choice</a><i class="fas fa-bolt"></i></h5>
        @foreach ($menus as $menu)   
-       <a class="p-2 text-dark" href="{{url($menu['url'])}}">{{$menu['title']}}</a>
+       <li><a class="p-2 text-dark" href="{{url($menu['url'])}}">{{$menu['title']}}</a></li>
         @endforeach  
             <a class="p-2 text-dark" href="{{url('shop')}}">Shop</a>
             @if(!Cart::isEmpty())

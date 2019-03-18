@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers;
-Use Illuminate\Http\Request;
-Use\App\Categorie;
-Use\App\Product;
-Use\App\Content;
+
+use Illuminate\Http\Request;
+use App\Categorie;
+use App\Product;
+use App\Content;
 
 class PagesController extends MainController
 
@@ -41,5 +42,10 @@ class PagesController extends MainController
         }else{
             redirect('')->withErrors('page not found');
         }
+    }
+
+    public function sortByPrice($cat_url) {
+        Categorie::getProductsByPrice($cat_url, self::$data);
+        return view('content.products', self::$data);
     }
 }
