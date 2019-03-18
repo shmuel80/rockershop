@@ -5,10 +5,11 @@ use Illuminate\Http\Request;
 use App\Categorie;
 use App\Product;
 use App\Content;
-
+use App\Http\Controllers\MainController;
 class PagesController extends MainController
 
 {
+   
    public function getHomePage() {
    self::$data['title'].= "Home";
    return view ('content.home', self::$data);
@@ -34,14 +35,13 @@ class PagesController extends MainController
         return view ("content.item", self::$data);
     }
 
-    public function getPageByUrl($page){
-        if(!empty($content = Content::getContent($page_url))){
-            self::$data['title'].= $content->title;
+    public function getPageByUrl($page_url) {
+        if (!empty($content = Content::getContent($page_url))) {
+            self::$data['title'] .= 'Content';
             self::$data['content'] = $content;
+
             return view('content.content', self::$data);
-        }else{
-            redirect('')->withErrors('page not found');
-        }
+        } 
     }
 
     public function sortByPrice($cat_url) {

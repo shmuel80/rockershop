@@ -10,7 +10,7 @@
     </div>
     <h1>SignIn</h1>
   <form method="post" action="{{url('user/userValidate')}}">
-  <input type="hidden" name= "_token" value="{{ csrf_token() }}">
+    <input type="hidden" class="form-control"  name="_token" value="{{csrf_token()}}"/>
               <div class="form-group">
                   <label for="email">E-mail address</label>
                   <input type="text" class="form-control" name="email" placeholder="Enter your e-mail address">

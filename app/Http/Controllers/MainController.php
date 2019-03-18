@@ -8,7 +8,7 @@ use App\Content;
 class MainController extends Controller
 {
     static public $data= ['title'=>"Rockershop | "];
-    public function _construct(){
+    public function __construct(){
         self::$data['menus'] = Menu::all()->toArray();
     }
     
