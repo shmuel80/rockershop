@@ -26,12 +26,13 @@
 
 <body id="page-top">
 
+
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="{{url('cms/dashboard')}}">CMS Admin panel</a>
+    <a class="navbar-brand mr-1" href="{{url('cms.dashboard')}}">CMS Admin panel</a>
 
     <ul class="navbar-nav ml-3">
-        <li><a class="nav-link text-light" href="{{url('/')}}">Home Page</a></li>
-        <li><a class="nav-link text-light" href="{{url('shop')}}">Shop</a></li>
+        <li><a class="nav-link text-light" href="{{url('/')}}"><i class="fas fa-bolt"></i>Home Page<i class="fas fa-bolt"></i></a></li>
+        <li><a class="nav-link text-light" href="{{url('shop/checkout')}}">Shop</a></li>
     </ul>
 </nav>
 
@@ -40,7 +41,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('cms/dashbord')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -60,11 +61,6 @@
         <a class="nav-link" href="{{url('cms/category')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>Categories</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Products</span></a>
       </li>
 
     </ul>

@@ -8,6 +8,6 @@ class CmsController extends MainController
 {
     public function ShowDashboard(){
         self::$data['title'].= 'CMS'; 
-        return view('cms.showDashboard', self::$data);
+        return view('cms.ShowDashboard', self::$data);
     }
 }

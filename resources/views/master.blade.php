@@ -34,7 +34,7 @@
             <a class="btn btn-outline-primary" href="{{url('user/logout')}}">Log out</a>
             @endif
             <span style="width: 12px"></span>
-            @if(! Session::has('is_admin'))
+            @if(Session::has('is_admin'))
             <a class="btn btn-outline-primary" href="{{url('cms/dashboard')}}">Admin</a>
             @endif
           </div>

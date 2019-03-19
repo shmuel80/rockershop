@@ -19,7 +19,7 @@ class ContentController extends MainController
     {
         self::$data['contents'] = Content::all()->toArray();
         self::$data['title'].= 'Cms Contents';
-        return view('cms.showContents', self::$data);
+        return view('cms.showContent', self::$data);
     }
 
     /**
