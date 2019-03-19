@@ -1,44 +1,49 @@
+    
 @extends('cms.master')
 @section('content')
 
 <div class="container">
-    <div class="row">
-     <div class="container col-md-6">
-        <div class="container">
-         <div class="row">
-        <a href="{{ur('cms/content')}}" class="btn btn-primary">Back to menu</a>
-        </div>
-        </div><br><br>
 
-            <div class="container col-md-6">
-       <div class="card-deck col-md-6 text-center">
-        </div>
-        <h1>Add New Content</h1>
-      <form method="post" action="{{url('cms/content')}}">
-      <input type="hidden" name= "_token" value="{{ csrf_token() }}">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header"><strong>Add new content</strong></div>
+        <div class="card-body">
+            <form method="post" action="{{url('cms/contents')}}">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                
+                <div class="form-group">
+                    <label for="sell">Menu:</label>
+                    <select class="form-control" id="sell" name="menu">
+                        @foreach ($menus as $menu)
+                        <option value="{{$menu['id']}}">{{$menu['title']}}</option>
+                        @endforeach
+                    </select>
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">Content Title:</label>
+                    <input type="text" class="form-control" name="title" value="{{old('title')}}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="data">Content Data:</label>
+                    <textarea class="form-control" rows="5" id="data" name="data">{{old('data')}}</textarea>
+                </div>
 
-      <div class="form-group">
-            <label for="sel1">Select list:</label>
-            <select class="form-control" id="sel1">
-            @foreach ($menus as $item)
-            <option value="{{$item['id']}}">"{{$item['title']}}"</option>
-            @endforeach
-          </select>
+                <button type="submit" class="btn btn-primary btn-block" name="submit">Save</button>
+            </form>
+
+            <div class="text-center">
+                <a class="d-block small mt-3" href="{{url('cms/contents')}}">Back to Contents</a>
             </div>
-                  <div class="form-group">
-                  <label for="title">Content Title</label>
-                  <input type="text" class="form-control" name="title" placeholder="{{old('title')}}">
-                  </div>
-                  <div class="form-group">
-                 <label for="url">Content Data</label>
-                <input type="text" class="form-control" name="data" placeholder="{{old('url')}}">
-                  </div>
-                  <button type="submit" class="btn btn-primary" name="submit">Save</button>
-              </form>
-          </div>
-              </div>
-            
-            </div>
-    @endsection
+
+        </div>
+ 
+    </div>
+
+</div>
 
 
+
+
+@endsection

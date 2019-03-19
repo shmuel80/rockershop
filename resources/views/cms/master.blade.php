@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>{{'$title'}}</title>
+  <title>{{$title}}</title>
 
   <link href="{{asset('vendor/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 
@@ -66,17 +66,7 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Products</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Orders</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Users</span></a>
-          
-      </li>
+
     </ul>
 
     <div id="content-wrapper">
@@ -108,6 +98,7 @@
           <div class="row">
           @yield('content')
           </div>
+      </div>
               
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
