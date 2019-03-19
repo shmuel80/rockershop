@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AddMenuRequest;
+use App\Http\Requests\UpdateMenuRequest;
 use App\Menu;
 use Session;
 

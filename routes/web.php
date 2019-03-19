@@ -29,6 +29,7 @@ Route::prefix('cms')->group(function(){
     Route::resource('menu', "MenuController"); 
     Route::resource('content', "ContentController"); 
     Route::resource('category', "CategoryController"); 
+    Route::resource('product', "ProductController");
 });  
 
     });

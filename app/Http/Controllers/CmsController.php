@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CmsController extends Controller
+class CmsController extends MainController
 {
     public function ShowDashboard(){
-
-    return view('cms.master');
-}};
+        self::$data['title'].= 'CMS'; 
+        return view('cms.showDashboard', self::$data);
+    }
+}

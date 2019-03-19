@@ -4,7 +4,7 @@
 <div class="container">
     <div class="container">
         <div class="row">
-        <a href="{{ur('cms/category/create')}}" class="btn btn-primary">Add new category</a>
+        <a href="{{url('cms/category/create')}}" class="btn btn-primary">Add new category</a>
         </div>
         </div><br><br>
      <div class="row">
@@ -34,7 +34,7 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                  @foreach ($categories as $row)               
+                  @foreach ($category as $row)               
                   <tr>
                     <td>{{$row['title']}}</td>
                     <td><img src={{asset('/images/'.$row['image'])}}width="50px" height="50px"></td>

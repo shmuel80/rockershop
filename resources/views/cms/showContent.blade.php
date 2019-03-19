@@ -6,7 +6,7 @@
         <div class="container col-md-6">
             <div class="container">
              <div class="row">
-        <a href="{{ur('cms/content/create')}}" class="btn btn-primary">Add new content</a>
+        <a href="{{url('cms/content/create')}}" class="btn btn-primary">Add new content</a>
         </div>
         </div><br><br>
      <div class="row">

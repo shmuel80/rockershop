@@ -4,7 +4,7 @@
 <div class="container">
     <div class="container">
         <div class="row">
-        <a href="{{ur('cms/menu/create')}}" class="btn btn-primary">Add new menu</a>
+        <a href="{{url('cms/menu/create')}}" class="btn btn-primary">Add new menu</a>
         </div>
         </div><br><br>
      <div class="row">
@@ -34,12 +34,12 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                  @foreach(menus as $ menu)
+                  @foreach($menus as $menu)
                   <tr>
                     <td>{{$menu['title']}}</td>
                     <td>{{$menu['url']}}</td>
-                  <td><a href="{{url("cms/menu/").'/'.$menu['id].'/edit'}}" class="btn btn-primary">Update</a></td>
-                    <td><a href="{{url("cms/menu").'/'.$menu['id]}}" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{url('cms/menu/'.$menu['id'].'/edit')}}" class="btn btn-primary">Update</a></td>
+                    <td><a href="{{url('cms/menu/'.$menu['id'])}}" class="btn btn-danger">Delete</a></td>
                   </tr>
                   @endforeach
                 </tbody>
