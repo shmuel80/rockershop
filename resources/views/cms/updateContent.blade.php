@@ -6,7 +6,7 @@
             <div class="container col-md-6">
             <div class="container">
             <div class="row">
-        <a href="{{ur('cms/content')}}" class="btn btn-primary">Back to content</a>
+        <a href="{{url('cms/content')}}" class="btn btn-primary">Back to content</a>
         </div>
         </div><br><br>
 
